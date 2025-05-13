@@ -1,0 +1,32 @@
+{
+  "name": "sevenpings",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "deploy-commands": "ts-node src/deploy-commands.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "trading"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Discord bot for tracking stock option trades",
+  "dependencies": {
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.3.1",
+    "nano": "^10.1.2",
+    "openai": "^4.98.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/nano": "^7.0.0",
+    "@types/node": "^20.10.4",
+    "ts-node": "^10.9.1"
+  }
+}

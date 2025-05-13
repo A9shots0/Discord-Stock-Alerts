@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: ${NODE_ENV:-development}.Dockerfile
+    restart: unless-stopped
+    depends_on:
+      couchdb:
+        condition: service_healthy
+    env_file:
+      - .env
+    develop:
+      watch:
+        - path: ./src
+          target: /usr/src/app/src
+          action: sync+restart
+        - path: ./package.json
+          target: /usr/src/app/package.json
+          action: sync+restart
+        - path: ./package-lock.json
+          target: /usr/src/app/package-lock.json
+          action: sync+restart
+        - path: ./tsconfig.json
+          target: /usr/src/app/tsconfig.json
+          action: sync+restart
+    networks:
+      - app-network
+
+  couchdb:
+    image: couchdb:3.3.1
+    restart: unless-stopped
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=password
+    volumes:
+      - couchdb_data:/opt/couchdb/data
+      - ./couchdb/etc/local.d:/opt/couchdb/etc/local.d
+    networks:
+      - app-network
+    ports:
+      - "5984:5984"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5984"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  couchdb_data: 
