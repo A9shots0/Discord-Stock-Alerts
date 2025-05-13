@@ -1,6 +1,6 @@
-# Stock Trading Discord Bot
+# Discord Stock Alerts
 
-A Discord bot for tracking and sharing stock option trades within your server. The bot helps maintain transparency in trading activities and provides tools for portfolio tracking.
+A Discord bot for tracking and sharing stock option trades within your server. The bot helps maintain transparency in trading activities and provides real-time alerts.
 
 ## Features
 
@@ -18,7 +18,6 @@ A Discord bot for tracking and sharing stock option trades within your server. T
 
 ### Portfolio Tracking
 - View detailed logs of all trades
-- Export trade history to CSV with calculated totals
 - Track running P&L (Profit/Loss)
 - View open positions summary
 
@@ -72,7 +71,6 @@ A Discord bot for tracking and sharing stock option trades within your server. T
      - "Send Messages"
      - "Embed Links"
      - "Use Slash Commands"
-     - "Attach Files" (for CSV exports)
 8. Copy the generated URL and open it in a browser to add the bot to your server
 
 ### Environment Configuration
@@ -102,8 +100,8 @@ OPENAI_API_KEY=your_openai_api_key
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd sevenpings
+git clone https://github.com/yourusername/Discord-Stock-Alerts.git
+cd Discord-Stock-Alerts
 ```
 
 2. Build and start the application:
@@ -120,8 +118,8 @@ docker-compose exec app npm run dev -- src/deploy-commands.ts
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd sevenpings
+git clone https://github.com/yourusername/Discord-Stock-Alerts.git
+cd Discord-Stock-Alerts
 ```
 
 2. Install dependencies:
